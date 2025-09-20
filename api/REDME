@@ -1,0 +1,30 @@
+/* --------------------- README (quick start) --------------------- */
+/*
+1) Create a folder, paste the files above into the same folder structure (models/, routes/, middleware/ and top-level files).
+2) Copy .env.example -> .env and set values (MONGO_URI, JWT_SECRET, PORT, FRONTEND_URL, ALLOW_REGISTRATION)
+3) npm install
+4) npm run dev   (or npm start)
+5) To pre-populate your profile and data run: npm run seed
+
+API overview (all api paths are prefixed by /api):
+- POST /api/auth/register   { name, email, password }
+- POST /api/auth/login      { email, password } -> returns { token }
+- GET  /api/profile         (Authorization: Bearer <token>) returns { user, projects, skills }
+- PUT  /api/profile         (Authorization) update profile fields
+
+Projects
+- GET  /api/projects
+- POST /api/projects        { title, description, projectDescription, technologies, image }
+- PUT  /api/projects/:id
+- DELETE /api/projects/:id
+
+Skills
+- GET  /api/skills
+- POST /api/skills          { category, iconName, items }
+- PUT  /api/skills/:id
+- DELETE /api/skills/:id
+
+Security notes:
+- Registration can be disabled by setting ALLOW_REGISTRATION=false in .env
+- Passwords are stored hashed (bcrypt). JWT tokens are used for auth in Authorization header.
+*/
