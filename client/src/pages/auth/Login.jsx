@@ -114,31 +114,31 @@ export default function Login() {
           <div className="flex justify-center gap-4">
             <motion.img
               whileHover={{ scale: 1.2 }}
-              src="/icons/mongodb.svg"
+              src="/mongodb.svg"
               alt="MongoDB"
               className="w-8 h-8"
             />
             <motion.img
               whileHover={{ scale: 1.2 }}
-              src="/icons/express.svg"
+              src="/express.svg"
               alt="Express"
               className="w-8 h-8"
             />
             <motion.img
               whileHover={{ scale: 1.2 }}
-              src="/icons/react.svg"
+              src="/react.png"
               alt="React"
               className="w-8 h-8"
             />
             <motion.img
               whileHover={{ scale: 1.2 }}
-              src="/icons/nodejs.svg"
+              src="/node.png"
               alt="Node.js"
               className="w-8 h-8"
             />
             <motion.img
               whileHover={{ scale: 1.2 }}
-              src="/icons/tailwind.svg"
+              src="/tailwind.webp"
               alt="Tailwind CSS"
               className="w-8 h-8"
             />

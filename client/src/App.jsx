@@ -330,7 +330,6 @@ function App() {
             </div>
           </motion.div>
         </div>
-        <Link to="/login">Login</Link>
       </section>
 
       {/* Projects Section */}
