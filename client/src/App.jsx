@@ -3,6 +3,7 @@ import React, { useState, useEffect, } from 'react';
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Github, Linkedin, ExternalLink, Mail, Phone, MapPin, Code, Database, Smartphone, Globe, Server, Cpu } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import ProjectCard from '@/components/ui/ProjectCard';
 import { useToast } from '@/components/ui/use-toast';
@@ -329,6 +330,7 @@ function App() {
             </div>
           </motion.div>
         </div>
+        <Link to="/login">Login</Link>
       </section>
 
       {/* Projects Section */}
