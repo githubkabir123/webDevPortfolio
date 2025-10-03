@@ -25,6 +25,7 @@ api/build/
 
 # Uploaded videos (important)
 api/public/uploads/
+api/uploads
 
 # System files
 .DS_Store
