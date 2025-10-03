@@ -20,6 +20,19 @@ const ProjectManager = () => {
     src: "",
     codeSrc: "",
   });
+  const [projectImage, setProjectImage] = useState(null);
+
+ // Upload image to server and return file URL
+  const uploadImage = async (file) => {
+    const formData = new FormData();
+    formData.append("image", file);
+    const res = await axiosClient.post("/api/upload", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return res.data.fileUrl;
+  };
 
   const addProject = async () => {
     if (!form.title.trim()) {
@@ -32,7 +45,8 @@ const ProjectManager = () => {
       title: "",
       description: "",
       projectDescription: "",
-      src: "",
+      image: "",
+      src: await uploadImage(projectImage),
       codeSrc: "",
     });
   };
@@ -63,6 +77,13 @@ const ProjectManager = () => {
             onChange={(e) => setForm({ ...form, description: e.target.value })}
             className="border border-gray-300 dark:border-gray-600 rounded p-2 w-full"
           />
+        <label>Project Image</label>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setProjectImage(e.target.files[0])}
+          className="w-full"
+        />
           <textarea
             placeholder="Full Description"
             value={form.projectDescription}
