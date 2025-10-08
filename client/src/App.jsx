@@ -26,10 +26,12 @@ function App() {
   const [guiLink,setGuitLink] =useState(null);
   const [linkedInLink,setLinkedInLink] =useState(null);
   const [resumeLink,setResumeLink] =useState(null);
+  const [formEndpoint,setFormEndpoint] =useState(null);
   const [projects,setProjects] =useState(null);
   const [skills,setSkills] =useState(null);
   const [facebookLink,setFacebookLink] =useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [status, setStatus] = useState("");
 
   const handleLinkAction = (url) => {
     try {
@@ -77,6 +79,7 @@ function App() {
     LinkedinLink : "#",
     resumelink : "#",
     FBlink : "#",
+    formendpoint : "#",
     projects : [
     {
       title: "E-Commerce Platform",
@@ -164,6 +167,7 @@ function App() {
     const LinkedinLink = userData.LinkedinLink;
     const resumelink = userData.resumelink;
     const FBlink = userData.FBlink;
+    const formendpoint = userData.formendpoint;
     let Userprojects = userData.projects;
     let Userskills = userData.skills;
 
@@ -183,6 +187,7 @@ function App() {
     setLinkedInLink(LinkedinLink);
     setResumeLink(resumelink);
     setFacebookLink(FBlink);
+    setFormEndpoint(formendpoint);
     setProjects(Userprojects);
     setSkills(Userskills);
   },[data])
@@ -221,19 +226,28 @@ function App() {
     }
   };
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async(e) => {
     e.preventDefault();
-    toast({
-      title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-      duration: 5000,
-    });
-  };
 
-  const handleProjectClick = () => {
-    toast({
-      title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-      duration: 5000,
+      const formData = new FormData(e.target);
+    console.log(formEndpoint);
+    const res = await fetch(formEndpoint, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
     });
+
+    if (res.ok) {
+      setStatus("Message sent successfully!");
+      e.target.reset();
+    } else {
+      setStatus("Something went wrong. Please try again.");
+    }
+    
+    // toast({
+    //   title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
+    //   duration: 5000,
+    // });
   };
 
   
@@ -594,6 +608,21 @@ function App() {
                     Send Message
                   </Button>
                 </div>
+
+                {
+                  status && (
+                    <AnimatePresence>
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <p className={`text-center text-sm mt-2 ${status.includes('successfully') ? 'text-green-400' : 'text-red-400'}`}>{status}</p>
+                      </motion.div>
+                    </AnimatePresence>
+                  )
+                }
               </form>
             </motion.div>
           </div>

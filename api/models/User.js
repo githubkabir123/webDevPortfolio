@@ -24,6 +24,7 @@ githubLink: String,
 linkedinLink: String,
 resumelink: String,
 fbLink: String,
+formendpoint: String,
 }, { timestamps: true });
 
 

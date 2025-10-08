@@ -10,6 +10,7 @@ const ProjectManager = () => {
     title: "",
     description: "",
     projectDescription: "",
+    technologies: "",
     src: "",
     codeSrc: "",
   });
@@ -17,6 +18,7 @@ const ProjectManager = () => {
     title: "",
     description: "",
     projectDescription: "",
+    technologies: "",
     src: "",
     codeSrc: "",
   });
@@ -45,6 +47,7 @@ const ProjectManager = () => {
       title: "",
       description: "",
       projectDescription: "",
+      technologies: "",
       image: "",
       src: await uploadImage(projectImage),
       codeSrc: "",
@@ -92,6 +95,12 @@ const ProjectManager = () => {
             rows={3}
           />
           <input
+          placeholder="technologies (comma separated, e.g., React, Node.js)"
+          value={form.technologies}
+          onChange={(e) => setForm({ ...form, technologies: e.target.value })}
+          className="border p-3 rounded-lg focus:ring focus:ring-primary w-full dark:bg-gray-700 dark:text-gray-100"
+          />
+          <input
             placeholder="Project Link"
             value={form.src}
             onChange={(e) => setForm({ ...form, src: e.target.value })}
@@ -119,6 +128,7 @@ const ProjectManager = () => {
                 <th className="px-4 py-3 text-left">Title</th>
                 <th className="px-4 py-3 text-left">Short Description</th>
                 <th className="px-4 py-3 text-left">Full Description</th>
+                <th className="px-4 py-3 text-left">Technologies</th>
                 <th className="px-4 py-3 text-left">Project Link</th>
                 <th className="px-4 py-3 text-left">Source Code</th>
                 <th className="px-4 py-3 text-center">Actions</th>
@@ -134,6 +144,9 @@ const ProjectManager = () => {
                     <td className="px-4 py-3 font-medium">{p.title}</td>
                     <td className="px-4 py-3">{p.description}</td>
                     <td className="px-4 py-3">{p.projectDescription}</td>
+                    <td className="px-6 py-4 text-gray-700 dark:text-gray-300">
+                    {p.technologies.join(", ")}
+                  </td>
                     <td className="px-4 py-3 text-blue-600 hover:underline">
                       <a href={p.src} target="_blank" rel="noopener noreferrer">
                         Visit

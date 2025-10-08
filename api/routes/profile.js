@@ -28,7 +28,7 @@ res.status(500).json({ message: 'Server error' });
 // Update profile (only allowed fields)
 router2.put('/', auth, async (req, res) => {
 try {
-const allowed = ['name', 'profileImageSrc', 'profession', 'bioDetails', 'aboutME', 'aboutMeCoverImage', 'Email', 'phoneNumber', 'addressDetails', 'githubLink', 'linkedinLink', 'resumelink', 'fbLink'];
+const allowed = ['name', 'profileImageSrc', 'profession', 'bioDetails', 'aboutME', 'aboutMeCoverImage', 'Email', 'phoneNumber', 'addressDetails', 'githubLink', 'linkedinLink', 'resumelink', 'fbLink', 'formendpoint'];
 const update = {};
 for (const k of allowed) if (req.body[k] !== undefined) update[k] = req.body[k];
 const user = await User2.findByIdAndUpdate(req.userId, update, { new: true }).lean();

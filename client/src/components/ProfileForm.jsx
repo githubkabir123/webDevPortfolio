@@ -17,6 +17,7 @@ const ProfileForm = () => {
     githubLink: "",
     linkedinLink: "",
     resumelink: "",
+    formendpoint: "",
     aboutME: {
       Starting: "",
       ProfessionalMilestone: "",
@@ -135,6 +136,50 @@ const ProfileForm = () => {
         className="w-full p-2 border rounded mb-2"
       />
 
+      {/* LinkedIn */}
+      <input
+        name="linkedinLink"
+        placeholder="LinkedIn Profile URL"
+        value={formData.linkedinLink}
+        onChange={handleChange}
+        className="w-full p-2 border rounded mb-2"
+      />
+
+      {/* GitHub */}
+      <input
+        name="githubLink"
+        placeholder="GitHub Profile URL"
+        value={formData.githubLink}
+        onChange={handleChange}
+        className="w-full p-2 border rounded mb-2"
+      />
+
+      {/* Resume */}
+      <input
+        name="resumelink"
+        placeholder="Resume Link"
+        value={formData.resumelink}
+        onChange={handleChange}
+        className="w-full p-2 border rounded mb-2"
+      />
+
+      {/* Facebook */}
+      <input
+        name="fbLink"
+        placeholder="Facebook Profile URL"
+        value={formData.fbLink}
+        onChange={handleChange}
+        className="w-full p-2 border rounded mb-2"
+      />
+      {/* Form Endpoint */}
+      <input
+        name="formendpoint"
+        placeholder="form endpoint URL"
+        value={formData.formendpoint}
+        onChange={handleChange}
+        className="w-full p-2 border rounded mb-2"
+      />
+    {console.log(formData)}
       {/* Profession */}
       <input
         name="profession"

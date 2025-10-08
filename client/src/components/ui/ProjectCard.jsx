@@ -6,6 +6,20 @@ import Modal from "./Modal";
 
 function ProjectCard(props) {
     const [isOpen, setIsOpen] = useState(false);
+    const handleProjectSrcClick = () => {
+        if (props.project?.src) {
+          window.open(props.project.src, '_blank');
+        } else {
+          alert('Project link is not available.');
+        }
+      };
+    const handleProjectCodeClick = () => {
+        if (props.project?.codeSrc) {
+          window.open(props.project.codeSrc, '_blank');
+        } else {
+          alert('Project code link is not available.');
+        }
+      };
   return (
     <>
         <motion.div
@@ -49,7 +63,7 @@ function ProjectCard(props) {
                   
                   <div className="flex gap-3">
                     <Button
-                    //   onClick={handleProjectClick}
+                      onClick={handleProjectSrcClick}
                       size="sm"
                       className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
                     >
@@ -57,8 +71,7 @@ function ProjectCard(props) {
                       Live Demo
                     </Button>
                     <Button
-                    //   onClick={handleProjectClick}
-                    
+                      onClick={handleProjectCodeClick}
                       variant="outline"
                       size="sm"
                       className={props.darkMode ? 'border-purple-400 text-purple-400 hover:bg-purple-400/10' : 'border-indigo-500 text-indigo-500 hover:bg-indigo-50'}
