@@ -179,7 +179,6 @@ const ProfileForm = () => {
         onChange={handleChange}
         className="w-full p-2 border rounded mb-2"
       />
-    {console.log(formData)}
       {/* Profession */}
       <input
         name="profession"

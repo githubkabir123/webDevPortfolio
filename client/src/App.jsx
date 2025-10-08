@@ -230,7 +230,6 @@ function App() {
     e.preventDefault();
 
       const formData = new FormData(e.target);
-    console.log(formEndpoint);
     const res = await fetch(formEndpoint, {
       method: "POST",
       body: formData,
